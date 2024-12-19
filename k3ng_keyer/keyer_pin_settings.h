@@ -2,6 +2,10 @@
 #ifndef keyer_pin_settings_h
 #define keyer_pin_settings_h
 
+// S53ZO add inhibit pin
+#define inhibit_button_pin 3 // Define the pin for the inhibit button
+//
+
 #define paddle_left 2
 #define paddle_right 5
 #define tx_key_line_1 11       // (high = key down/tx on)
