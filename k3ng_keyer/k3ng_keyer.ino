@@ -1451,12 +1451,13 @@ If you offer a hardware kit using this software, show your appreciation by sendi
 
 #define eeprom_magic_number 41               // you can change this number to have the unit re-initialize EEPROM
 
-#S53ZO add buffer
+// S53ZO add buffer
 #define BUFFER_SIZE 256
 char cw_buffer[BUFFER_SIZE];
 int buffer_head = 0;
 int buffer_tail = 0;
 bool inhibit_cw_sending = false;
+//
 
 #include <stdio.h>
 #include "keyer_hardware.h"
@@ -2449,7 +2450,7 @@ void setup()
 
 // --------------------------------------------------------------------------------------------
 
-#S53ZO add buffer
+//S53ZO add buffer
 void add_to_buffer(char c) {
     int next_head = (buffer_head + 1) % BUFFER_SIZE;
     if (next_head != buffer_tail) { // Check if buffer is not full
@@ -2467,13 +2468,13 @@ char read_from_buffer() {
         return c;
     }
 }
-
+//
 void loop()
 {
 
   // this is where the magic happens
 
-# S53ZO add buffer code
+// S53ZO add buffer code
 	
 // Check the inhibit button state
     if (digitalRead(inhibit_button_pin) == LOW) {
@@ -2492,6 +2493,7 @@ void loop()
             // Send CW message 'c'
         }
     }
+//
 	
   #if defined(FEATURE_DUAL_MODE_KEYER_AND_TINYFSK)
     if (runTinyFSK){
